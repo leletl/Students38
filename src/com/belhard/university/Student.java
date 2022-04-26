@@ -12,6 +12,7 @@ private String studentInfo;
 	public Student(String name, String surname, Address address, int age) {
 		super(name, surname, address);
 		this.age = age;
+		this.studentInfo= new String (name+" "+surname+" "+address.getAddress()) ;
 	}
 
 

@@ -16,6 +16,7 @@ public class Teacher extends Person {
 		super(name, surname, address);
 		this.experiance = experiance;
 		this.worktime = worktime;
+		this.teacherInfo= new String (name+" "+surname+" "+address.getAddress()) ;
 	}
 	
 	public String getName() {
