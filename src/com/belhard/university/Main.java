@@ -10,7 +10,7 @@ public class Main {
 		Address AddressStudent_2 = new Address ("Manchester","Random Street", 13, 88);
 		Student Student_2 = new Student ("Marcus","Rashford", AddressStudent_2, 26);
 		Address AddressStudent_3 = new Address ("Gomel'","Mira", 3, 18);
-		Student Student_3 =new Student ("Vladislav","Sinotov", AddressStudent_3, 19);
+		Student Student_3 =new Student ("Vladislav","Sinotov", AddressStudent_3, 193);
 		Address Residence= new Address ("Minsk","Surganova", 15, 114);
 		Student_2.setAddress(Residence);//second student moved to student residence ;
 		Teacher_1.setAge(55);

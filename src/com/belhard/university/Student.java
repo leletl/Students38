@@ -1,6 +1,7 @@
 package com.belhard.university;
 
 import com.belhard.university.Address;
+import com.belhard.university.util.AgeUtil;
 
 public class Student extends Person {
 private String name;
@@ -11,6 +12,7 @@ private String studentInfo;
 
 	public Student(String name, String surname, Address address, int age) {
 		super(name, surname, address);
+		AgeUtil.checkAge(age);
 		this.age = age;
 		this.studentInfo= new String (name+" "+surname+" "+address.getAddress()) ;
 	}
