@@ -3,12 +3,15 @@ package com.belhard.university;
 public abstract class Person {
     String name;
     String surname;
+    String sex;
     Address address;
 
-    public Person(String name, String surname, Address address) {
+
+    public Person(String name, String surname, String sex, Address address) {
         this.name = name;
         this.surname = surname;
         this.address = address;
+        this.sex = sex;
     }
 
     public void setName(String name) {
@@ -33,5 +36,13 @@ public abstract class Person {
 
     public Address getAddress() {
         return address;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 }

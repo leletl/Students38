@@ -2,6 +2,8 @@ package com.belhard.university;
 
 import com.belhard.university.Address;
 
+import java.util.ArrayList;
+
 public class Teacher extends Person {
 	private String name;
 	private String surname;
@@ -11,9 +13,10 @@ public class Teacher extends Person {
 	private double worktime;
 	private Address address;
 	private String teacherInfo;
+	private ArrayList <Teacher> teachersList= new ArrayList<> ();
 
-	public Teacher(String name, String surname, Address address,int experiance, double worktime) {
-		super(name, surname, address);
+	public Teacher(String name, String surname, String sex, Address address,int experiance, double worktime) {
+		super(name, surname, sex, address);
 		this.experiance = experiance;
 		this.worktime = worktime;
 		this.teacherInfo= new String (name+" "+surname+" "+address.getAddress()) ;
@@ -91,5 +94,9 @@ public class Teacher extends Person {
 	void displayInfo () {
 		System.out.println (name+" "+surname+ " "+salary+ " "+ experiance+" " + age + " " + address.getAddress());
 	}
-	
+
+	public  boolean addTeacher (Teacher teacher) {
+		teachersList.add(teacher);
+		return  true;
+	}
 }

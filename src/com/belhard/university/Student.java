@@ -10,8 +10,8 @@ private int age;
 private Address address;
 private String studentInfo;
 
-	public Student(String name, String surname, Address address, int age) {
-		super(name, surname, address);
+	public Student(String name, String surname, String sex, Address address, int age) {
+		super(name, surname, sex, address);
 		AgeUtil.checkAge(age);
 		this.age = age;
 		this.studentInfo= new String (name+" "+surname+" "+address.getAddress()) ;

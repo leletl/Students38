@@ -7,6 +7,7 @@ public class Group {
 	private int Course;
 	private Teacher teacher;
 	private ArrayList <Student> students = new ArrayList <>();
+	private ArrayList <Teacher> teachers = new ArrayList<>();
 	//private Address address;
 	String teacherinfo;
 	
@@ -29,10 +30,21 @@ public class Group {
 	public Teacher getTeacher() {
 		return teacher;
 	}
-	
+
+	public boolean addTeacher (Teacher teacher) {
+		teachers.add(teacher);
+		return true;
+	}
+
+	public boolean removeTeacher (Teacher teacher) {
+		teachers.remove(teacher);
+		return true;
+	}
+
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
 	}
+
 	
 	public ArrayList<Student> getStudents() {
 		return students;
@@ -54,7 +66,11 @@ public class Group {
 	
 	public String getList() {
 		String list = "Group number: " + NumberOfGroup + "; Course: "+ Course+"\n";
-		list+="Teacher: "+teacher.getTeacherInfo()+" Salary: "+teacher.getSalary()+"\n";
+
+		for (Teacher t: teachers) {
+			list+= "Teacher: " + t.getTeacherInfo()+"\n";
+		}
+
 		for (int i=0; i<students.size();i++) {
 			Student student =  students.get(i);
 			list+="Student: "+student.getStudentInfo()+"\n";
