@@ -13,7 +13,7 @@ public class Teacher extends Person {
 	private double worktime;
 	private Address address;
 	private String teacherInfo;
-	private ArrayList <Teacher> teachersList= new ArrayList<> ();
+	private static ArrayList <Teacher> teachersList= new ArrayList<> ();
 
 	public Teacher(String name, String surname, String sex, Address address,int experiance, double worktime) {
 		super(name, surname, sex, address);
@@ -92,11 +92,26 @@ public class Teacher extends Person {
 	}
 
 	void displayInfo () {
-		System.out.println (name+" "+surname+ " "+salary+ " "+ experiance+" " + age + " " + address.getAddress());
+		System.out.println (name+" "+surname+ " "+salary+ " "+ experiance+" " + age + " " );
 	}
 
-	public  boolean addTeacher (Teacher teacher) {
+	public static boolean addTeacher(Teacher teacher) {
 		teachersList.add(teacher);
 		return  true;
+	}
+	public static void displayArray() {
+		teachersList.stream().forEach(s-> {
+			System.out.println(s.getTeacherInfo());});
+		System.out.println();
+	}
+	public static void displayPension() {
+		teachersList.stream().filter(s->(s.sex.equals("F") && s.age>58)||(s.age>63 && s.sex.equals("M")))
+				.forEach(s-> System.out.println(s.getTeacherInfo()+" Age: "+s.getAge()));
+		System.out.println();
+	}
+
+	public static void  displayRich (int salary) {
+		teachersList.stream().filter(s->s.salary >salary).forEach(s-> System.out.println(s.getTeacherInfo()+" Salary: "+ s.getSalary()));
+		System.out.println();
 	}
 }

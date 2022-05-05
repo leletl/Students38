@@ -3,14 +3,32 @@ package com.belhard.university;
 import java.util.ArrayList;
 
 public class Group {
+	private int YearOfAdmission;
+	private int YearOfGraduate;
 	private int NumberOfGroup;
 	private int Course;
 	private Teacher teacher;
 	private ArrayList <Student> students = new ArrayList <>();
 	private ArrayList <Teacher> teachers = new ArrayList<>();
-	//private Address address;
+	private static ArrayList <Group> groups = new ArrayList<>();
 	String teacherinfo;
-	
+
+	public int getYearOfAdmission() {
+		return YearOfAdmission;
+	}
+
+	public void setYearOfAdmission(int yearOfAdmission) {
+		YearOfAdmission = yearOfAdmission;
+	}
+
+	public int getYearOfGraduate() {
+		return YearOfGraduate;
+	}
+
+	public void setYearOfGraduate(int yearOfGraduate) {
+		YearOfGraduate = yearOfGraduate;
+	}
+
 	public int getNumberOfGroup() {
 		return NumberOfGroup;
 	}
@@ -62,6 +80,15 @@ public class Group {
 	public boolean removeStudent (Student student) {
 		students.remove(student);
 			return true;
+	}
+
+	public boolean addGroup (Group group) {
+		groups.add(group);
+		return true;
+	}
+	public static void yearRange (int first, int second) {
+		groups.stream().filter(s->s.YearOfAdmission>first&&s.YearOfGraduate<second)
+				.forEach(s-> System.out.println(s.getList()+"\n"));
 	}
 	
 	public String getList() {
