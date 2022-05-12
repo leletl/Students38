@@ -19,8 +19,8 @@ public class Main {
 		Teacher_2.setAge(65);
 		Teacher_1.teacherSalary(Teacher_1.experiance);
 		Teacher_2.teacherSalary(10);
-		Teacher.addTeacher(Teacher_1);
 		Teacher.addTeacher(Teacher_2);
+		Teacher.addTeacher(Teacher_1);
 		System.out.println("Все учителя: ");
 		Teacher.displayArray();
 		System.out.println("Учителя на пенсии: ");

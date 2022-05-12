@@ -1,10 +1,11 @@
 package com.belhard.university;
 
-import com.belhard.university.Address;
+import com.belhard.university.util.TeacherAgeComparator;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
-public class Teacher extends Person {
+public class Teacher extends Person implements Comparable<Teacher>{
 	private String name;
 	private String surname;
 	private int age;
@@ -95,13 +96,15 @@ public class Teacher extends Person {
 		System.out.println (name+" "+surname+ " "+salary+ " "+ experiance+" " + age + " " );
 	}
 
+	static Comparator<Teacher> AgeComparator = new TeacherAgeComparator();
+
 	public static boolean addTeacher(Teacher teacher) {
 		teachersList.add(teacher);
 		return  true;
 	}
 	public static void displayArray() {
-		teachersList.stream().forEach(s-> {
-			System.out.println(s.getTeacherInfo());});
+		teachersList.stream().sorted().forEach(s-> {
+			System.out.println(s.getTeacherInfo()+" "+ s.age);});
 		System.out.println();
 	}
 	public static void displayPension() {
@@ -114,4 +117,16 @@ public class Teacher extends Person {
 		teachersList.stream().filter(s->s.salary >salary).forEach(s-> System.out.println(s.getTeacherInfo()+" Salary: "+ s.getSalary()));
 		System.out.println();
 	}
+
+	@Override
+	public String toString() {
+		return  getTeacherInfo();
+
+	}
+
+	@Override
+	public int compareTo(Teacher o) {
+		return this.getAge() - o.getAge();
+	}
 }
+
