@@ -6,7 +6,7 @@ public class Main {
 		Address AddressTeacher_1 = new Address ("Minsk","Lenina", 122, 13);
 		Teacher Teacher_1 = new Teacher ("Anna","Konoplyanka", "F", AddressTeacher_1, 22,165 );
 		Address AddressTeacher_2 = new Address ("Minsk","Kolasa", 15, 123);
-		Teacher Teacher_2 = new Teacher ("Maxim","Pivovarov", "M", AddressTeacher_2, 22,165 );
+		Teacher Teacher_2 = new Teacher ("Maxim","Pivovarov", "M", AddressTeacher_2, 12,165 );
 		Address AddressStudent_1 = new Address ("Orsha","Marshala Zhukova", 2, 1);
 		Student Student_1 = new Student ("Harry","Plotter", "M", AddressStudent_1, 25);
 		Address AddressStudent_2 = new Address ("Manchester","Random Street", 13, 88);
@@ -15,14 +15,16 @@ public class Main {
 		Student Student_3 =new Student ("Vladislav","Sinotov", "M",AddressStudent_3, 19);
 		Address Residence= new Address ("Minsk","Surganova", 15, 114);
 		Student_2.setAddress(Residence);//second student moved to student residence ;
-		Teacher_1.setAge(55);
-		Teacher_2.setAge(65);
+		Teacher_1.setAge(65);
+		Teacher_2.setAge(55);
 		Teacher_1.teacherSalary(Teacher_1.experiance);
 		Teacher_2.teacherSalary(10);
 		Teacher.addTeacher(Teacher_2);
 		Teacher.addTeacher(Teacher_1);
-		System.out.println("Все учителя: ");
-		Teacher.displayArray();
+		System.out.println("Все учителя (сортированы по Имени и Фамилии): ");
+		Teacher.displayAllSortedByInfo();
+		System.out.println("Все учителя (сортированы по возрасту): ");
+		Teacher.displayAllSortedByAge();
 		System.out.println("Учителя на пенсии: ");
 		Teacher.displayPension();
 		System.out.println("Учителя с ЗП больше указанного значения: ");
@@ -41,6 +43,7 @@ public class Main {
 		Teacher_1.setSalary(20000);//change salary
 		System.out.println("Группы в указанном диапазоне: ");
 		Group.yearRange(2014,2025);
+
 	}
 
 
