@@ -1,5 +1,6 @@
-package com.belhard.university;
+package com.belhard.university.model;
 
+import com.belhard.university.base.Person;
 import com.belhard.university.util.AgeUtil;
 
 public class Student extends Person {

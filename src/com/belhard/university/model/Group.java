@@ -1,4 +1,4 @@
-package com.belhard.university;
+package com.belhard.university.model;
 
 import java.util.ArrayList;
 
@@ -104,6 +104,20 @@ public class Group {
 		}
 		
 		return list;
+	}
+
+	@Override
+	public String toString() {
+		return "Group{" +
+				"YearOfAdmission=" + YearOfAdmission +
+				", YearOfGraduate=" + YearOfGraduate +
+				", NumberOfGroup=" + NumberOfGroup +
+				", Course=" + Course +
+				", teacher=" + teacher +
+				", students=" + students +
+				", teachers=" + teachers +
+				", teacherinfo='" + teacherinfo + '\'' +
+				'}';
 	}
 }
 	

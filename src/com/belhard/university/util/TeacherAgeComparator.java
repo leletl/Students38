@@ -1,6 +1,6 @@
 package com.belhard.university.util;
 
-import com.belhard.university.Teacher;
+import com.belhard.university.model.Teacher;
 
 import java.util.Comparator;
 

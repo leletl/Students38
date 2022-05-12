@@ -1,5 +1,6 @@
-package com.belhard.university;
+package com.belhard.university.model;
 
+import com.belhard.university.base.Person;
 import com.belhard.university.util.TeacherAgeComparator;
 
 import java.util.ArrayList;
@@ -14,9 +15,10 @@ public class Teacher extends Person implements Comparable<Teacher>{
 	private String teacherInfo;
 	private static ArrayList <Teacher> teachersList= new ArrayList<> ();
 
-	public Teacher(String name, String surname, String sex, Address address,int experiance, double worktime) {
+	public Teacher(String name, String surname, String sex, int age, Address address, int experiance, double worktime) {
 		super(name, surname, sex, address);
 		this.experiance = experiance;
+		this.age = age;
 		this.worktime = worktime;
 		this.teacherInfo= new String (name+" "+surname+" "+address.getAddress()) ;
 	}
@@ -46,8 +48,8 @@ public class Teacher extends Person implements Comparable<Teacher>{
 			this.age = age;			
 	}
 	
-	void teacherSalary(int experiance) {
-		salary = (0.25*experiance + 3.5)*worktime;
+	public double teacherSalary(int experiance) {
+		return salary = (0.25*experiance + 3.5)*worktime;
 	}
 	
 	public double getSalary() {
@@ -67,7 +69,7 @@ public class Teacher extends Person implements Comparable<Teacher>{
 	}
 
 	void displayInfo () {
-		System.out.println (name+" "+surname+ " "+salary+ " "+ experiance+" " + age + " " );
+		System.out.println (getName()+" "+getSurname()+ " "+salary+ " "+ experiance+" " + age + " " );
 	}
 
 	static Comparator<Teacher> AgeComparator = new TeacherAgeComparator();
@@ -88,7 +90,7 @@ public class Teacher extends Person implements Comparable<Teacher>{
 	}
 
 	public static void displayPension() {
-		teachersList.stream().filter(s->(s.sex.equals("F") && s.age>58)||(s.age>63 && s.sex.equals("M")))
+		teachersList.stream().filter(s->(s.getSex().equals("F") && s.age>58)||(s.age>63 && s.getSex().equals("M")))
 				.forEach(s-> System.out.println(s.getTeacherInfo()+" Age: "+s.getAge()));
 		System.out.println();
 	}
@@ -100,15 +102,16 @@ public class Teacher extends Person implements Comparable<Teacher>{
 
 	@Override
 	public String toString() {
-		return teacherInfo+" Возраст: "+ age+" Зарплата: "+salary+" Опыт: "+experiance+" Пол: "+ sex;
+		return teacherInfo+" Возраст: "+ age+" Зарплата: "+salary+" Опыт: "+experiance+" Пол: "+ getSex();
 	}
 
 	@Override
 	public int compareTo(Teacher o) {
-		int rez =this.name.compareTo(o.name);
-		if (this.name.compareTo(o.name)==0){
-		rez =  this.surname.compareTo(o.surname);}
+		int rez =this.getName().compareTo(o.getName());
+		if (this.getName().compareTo(o.getName())==0){
+		rez =  this.getSurname().compareTo(o.getSurname());}
 		return rez;
 	}
+
 }
 

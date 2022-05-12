@@ -1,4 +1,6 @@
-package com.belhard.university;
+package com.belhard.university.base;
+
+import com.belhard.university.model.Address;
 
 public abstract class Person {
     String name;
