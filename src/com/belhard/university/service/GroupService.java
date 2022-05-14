@@ -4,9 +4,11 @@ import com.belhard.university.model.Group;
 import com.belhard.university.repository.GroupRepository;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class GroupService {
     private GroupRepository groupRepository;
+    Group group;
 
     public GroupService(GroupRepository groupRepository) {
         this.groupRepository = groupRepository;
@@ -22,6 +24,10 @@ public class GroupService {
         groupRepository.addGroups(newGroups);
     }
 
+    public  void  SetNumberOfGroup (Group group) {
+        Scanner scanner = new Scanner(System.in);
+        group.setNumberOfGroup(scanner.nextInt());
+    }
     @Override
     public String toString() {
         return "GroupService{" +

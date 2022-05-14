@@ -5,7 +5,11 @@ import com.belhard.university.model.Group;
 import com.belhard.university.model.Student;
 import com.belhard.university.model.Teacher;
 import com.belhard.university.repository.GroupRepository;
+import com.belhard.university.repository.StudentsRepository;
+import com.belhard.university.repository.TeacherRepository;
 import com.belhard.university.service.GroupService;
+import com.belhard.university.service.StudentsService;
+import com.belhard.university.service.TeacherService;
 
 import java.util.ArrayList;
 
@@ -25,20 +29,20 @@ public class Main {
 		Address AddressStudent_3 = new Address ("Gomel'","Mira", 3, 18);
 		Student Student_3 =new Student ("Vladislav","Sinotov", "M",AddressStudent_3, 19);
 		Address Residence= new Address ("Minsk","Surganova", 15, 114);
-		Student_2.setAddress(Residence);//second student moved to student residence ;
+		Student_2.setAddress(Residence);
 		Teacher_1.setAge(65);
-		Teacher_2.setAge(0);
-		Teacher_1.teacherSalary(Teacher_1.getExperiance());
-		Teacher_2.teacherSalary(10);
-		Teacher.addTeacher(Teacher_2);
-		Teacher.addTeacher(Teacher_1);
-		System.out.println("Все учителя (сортированы по Имени и Фамилии): ");
+		Teacher_2.setAge(55);
+		TeacherService.teacherSalary(Teacher_1);
+		TeacherService.teacherSalary(Teacher_2);
+		StudentsService.addStudent(Student_1);
+		StudentsService.addStudent(Student_2);
+		StudentsService.addStudent(Student_3);
+		TeacherService.addTeacher(Teacher_1);
+		TeacherService.addTeacher(Teacher_2);
+		Teacher.setTeachersList(TeacherRepository.getTeachersList());
 		Teacher.displayAllSortedByInfo();
-		System.out.println("Все учителя (сортированы по возрасту): ");
 		Teacher.displayAllSortedByAge();
-		System.out.println("Учителя на пенсии: ");
 		Teacher.displayPension();
-		System.out.println("Учителя с ЗП больше указанного значения: ");
 		Teacher.displayRich(1000);
 		Group group = new Group();
 		group.addGroup(group);
@@ -46,19 +50,13 @@ public class Main {
 		group.setYearOfGraduate(2022);
 		group.setNumberOfGroup(1);
 		group.setCourse(2);
+		group.setStudents(StudentsRepository.getStudents());
 		group.addTeacher(Teacher_2);
-		group.addStudent(Student_1);
-		group.addStudent(Student_2);
-		group.addStudent(Student_3);
-		group.removeStudent(Student_2);
+		//groupService.SetNumberOfGroup (group);
 		ArrayList <Group> groups = new ArrayList<>();
 		groups.add(group);
 		groupService.addGroups(groups);
 		Teacher_1.setSalary(20000);//change salary
-		System.out.println("Группы в указанном диапазоне: ");
-		Group.yearRange(2014,2025);
-
+		Group.yearRange(2014,2033);
 	}
-
-
 }

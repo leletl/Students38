@@ -17,7 +17,6 @@ private String studentInfo;
 		this.studentInfo= new String (name+" "+surname+" "+address.getAddress()) ;
 	}
 
-
 	public String getName() {
 		return name;
 	}
@@ -33,12 +32,10 @@ private String studentInfo;
 	public int getAge() {
 		return age;
 	}
-	
 	public  void setAge (int age) {
 		if (age>0 && age<100)
 			this.age = age;			
 	}
-	
 	public Address getAddress() {
 		return address;
 	}
@@ -47,13 +44,10 @@ private String studentInfo;
 	}
 	public String getStudentInfo() {
 		return studentInfo;
-	} 
-	
-	public  void setStudentInfo (String studentInfo) {
-		this.studentInfo = studentInfo;		
 	}
-
-	void displayInfo () {
-		System.out.println (name+" "+surname+ " "+ age + " " + address.getAddress());
+	@Override
+	public String toString() {
+		return studentInfo+" Âîçğàñò: "+ age+" Ïîë: "+ getSex();
 	}
 }
+/* ûôâô*/

@@ -11,7 +11,6 @@ public class Group {
 	private ArrayList <Student> students = new ArrayList <>();
 	private ArrayList <Teacher> teachers = new ArrayList<>();
 	private static ArrayList <Group> groups = new ArrayList<>();
-	String teacherinfo;
 
 	public int getYearOfAdmission() {
 		return YearOfAdmission;
@@ -71,16 +70,6 @@ public class Group {
 	public void setStudents(ArrayList<Student> students) {
 		this.students = students;
 	}
-	
-	public boolean addStudent (Student student) {
-		students.add(student);
-			return true;
-	}
-	
-	public boolean removeStudent (Student student) {
-		students.remove(student);
-			return true;
-	}
 
 	public boolean addGroup (Group group) {
 		groups.add(group);
@@ -88,36 +77,18 @@ public class Group {
 	}
 	public static void yearRange (int first, int second) {
 		groups.stream().filter(s->s.YearOfAdmission>first&&s.YearOfGraduate<second)
-				.forEach(s-> System.out.println(s.getList()+"\n"));
-	}
-	
-	public String getList() {
-		String list = "Group number: " + NumberOfGroup + "; Course: "+ Course+"\n";
-
-		for (Teacher t: teachers) {
-			list+= "Teacher: " + t.getTeacherInfo()+"\n";
-		}
-
-		for (int i=0; i<students.size();i++) {
-			Student student =  students.get(i);
-			list+="Student: "+student.getStudentInfo()+"\n";
-		}
-		
-		return list;
+				.forEach(s-> System.out.println("Группы в указанном диапазоне: "+s+"\n"));
 	}
 
 	@Override
 	public String toString() {
-		return "Group{" +
-				"YearOfAdmission=" + YearOfAdmission +
-				", YearOfGraduate=" + YearOfGraduate +
-				", NumberOfGroup=" + NumberOfGroup +
-				", Course=" + Course +
-				", teacher=" + teacher +
-				", students=" + students +
-				", teachers=" + teachers +
-				", teacherinfo='" + teacherinfo + '\'' +
-				'}';
+		return "Group: " +
+				" Number of group: " + NumberOfGroup +
+				", Year of admission: " + YearOfAdmission +
+				", Year of graduate: " + YearOfGraduate +
+				", Course=" + Course + "\n"+
+				"Teachers=" + teachers +  "\n"+
+				"Students="+  students + "\n";
 	}
 }
 	
