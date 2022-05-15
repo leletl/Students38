@@ -6,14 +6,14 @@ import java.util.ArrayList;
 
 public class TeacherRepository {
 
-    private static ArrayList <Teacher> teachersList= new ArrayList<> ();
+    private static ArrayList<Teacher> teachersList = new ArrayList<>();
 
     public static boolean addTeacher(Teacher teacher) {
         teachersList.add(teacher);
         return true;
     }
 
-    public static boolean removeTeacher (Teacher teacher) {
+    public static boolean removeTeacher(Teacher teacher) {
         teachersList.remove(teacher);
         return true;
     }

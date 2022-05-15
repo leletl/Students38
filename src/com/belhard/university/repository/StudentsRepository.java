@@ -5,7 +5,7 @@ import com.belhard.university.model.Student;
 import java.util.ArrayList;
 
 public class StudentsRepository {
-    static ArrayList <Student> students = new ArrayList<>();
+    static ArrayList<Student> students = new ArrayList<>();
 
     public static boolean addStudents(Student student) {
         students.add(student);
@@ -16,6 +16,7 @@ public class StudentsRepository {
         students.remove(student);
         return true;
     }
+
     public static ArrayList<Student> getStudents() {
         return students;
     }

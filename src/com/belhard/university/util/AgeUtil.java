@@ -6,14 +6,12 @@ import com.belhard.university.exception.YoungException;
 public class AgeUtil {
     public static void checkAge(int age) {
 
-
         try {
             checkAgeYoung(age);
             checkAgeOld(age);
         } catch (YoungException | OldException e) {
             e.printStackTrace();
         }
-
     }
 
     private static void checkAgeYoung(int age) throws YoungException {

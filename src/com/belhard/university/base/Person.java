@@ -8,7 +8,6 @@ public abstract class Person {
     String sex;
     Address address;
 
-
     public Person(String name, String surname, String sex, Address address) {
         this.name = name;
         this.surname = surname;

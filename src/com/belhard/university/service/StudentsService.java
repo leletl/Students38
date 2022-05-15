@@ -7,8 +7,8 @@ import com.belhard.university.repository.StudentsRepository;
 public class StudentsService {
     private StudentsRepository studentsRepository;
 
-    public StudentsService (StudentsRepository studentsRepository) {
-        this.studentsRepository =studentsRepository;
+    public StudentsService(StudentsRepository studentsRepository) {
+        this.studentsRepository = studentsRepository;
     }
 
     public static void addStudent(Student student) {
@@ -16,8 +16,8 @@ public class StudentsService {
         StudentsRepository.addStudents(student);
     }
 
-    public void removeStudent (Student student) {
-        System.out.println("remove student: "  +student.getStudentInfo());
+    public void removeStudent(Student student) {
+        System.out.println("remove student: " + student.getStudentInfo());
         StudentsRepository.removeStudents(student);
     }
 
