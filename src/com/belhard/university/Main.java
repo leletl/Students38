@@ -29,6 +29,7 @@ public class Main {
 		Student Student_3 = new Student("Vladislav", "Sinotov", "M", AddressStudent_3, 19);
 		Address Residence = new Address("Minsk", "Surganova", 15, 114);
 		Teacher Teacher_3 = new Teacher("Vladimir", "Malevich", "M", 44, Residence, 23, 165);
+		FileParserUtil.parserTeacher();
 		FileParserUtil.parser();
 		Converter<Teacher, Methodist> converter = x -> new Methodist(x.getName(), x.getSurname(), x.getSex(), x.getAge(), x.getAddress());
 		Methodist methodist = converter.convert(Teacher_3);
@@ -55,7 +56,7 @@ public class Main {
 		group.setNumberOfGroup(1);
 		group.setCourse(2);
 		group.setStudents(FileParserUtil.parser());
-		group.addTeacher(Teacher_2);
+		group.addTeacher(FileParserUtil.parserTeacher().get(0));
 //		groupService.SetNumberOfGroup(group);
 		ArrayList<Group> groups = new ArrayList<>();
 		groups.add(group);

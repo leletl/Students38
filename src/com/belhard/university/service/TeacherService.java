@@ -23,4 +23,8 @@ public class TeacherService {
         teacher.setSalary(salary);
         return salary;
     }
+    public static double teacherSalaryByExperianceAndWorktinme(double experiance, double worktime) {
+        double salary = (0.25 * experiance + 3) * worktime;
+        return salary;
+    }
 }
