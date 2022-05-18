@@ -56,7 +56,7 @@ public class Main {
 		group.setCourse(2);
 		group.setStudents(FileParserUtil.parser());
 		group.addTeacher(Teacher_2);
-		groupService.SetNumberOfGroup(group);
+//		groupService.SetNumberOfGroup(group);
 		ArrayList<Group> groups = new ArrayList<>();
 		groups.add(group);
 		groupService.addGroups(groups);
