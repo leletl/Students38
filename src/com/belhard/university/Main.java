@@ -8,6 +8,7 @@ import com.belhard.university.service.GroupService;
 import com.belhard.university.service.StudentsService;
 import com.belhard.university.service.TeacherService;
 import com.belhard.university.util.Converter;
+import com.belhard.university.util.FileParserUtil;
 
 import java.util.ArrayList;
 
@@ -28,6 +29,7 @@ public class Main {
 		Student Student_3 = new Student("Vladislav", "Sinotov", "M", AddressStudent_3, 19);
 		Address Residence = new Address("Minsk", "Surganova", 15, 114);
 		Teacher Teacher_3 = new Teacher("Vladimir", "Malevich", "M", 44, Residence, 23, 165);
+		FileParserUtil.parser();
 		Converter<Teacher, Methodist> converter = x -> new Methodist(x.getName(), x.getSurname(), x.getSex(), x.getAge(), x.getAddress());
 		Methodist methodist = converter.convert(Teacher_3);
 		methodist.displayInfo();
@@ -52,7 +54,7 @@ public class Main {
 		group.setYearOfGraduate(2022);
 		group.setNumberOfGroup(1);
 		group.setCourse(2);
-		group.setStudents(StudentsRepository.getStudents());
+		group.setStudents(FileParserUtil.parser());
 		group.addTeacher(Teacher_2);
 		groupService.SetNumberOfGroup(group);
 		ArrayList<Group> groups = new ArrayList<>();
